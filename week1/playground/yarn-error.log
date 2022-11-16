@@ -1,0 +1,46 @@
+Arguments: 
+  /opt/homebrew/Cellar/node/18.9.0/bin/node /Users/michva2/.yarn/bin/yarnpkg install
+
+PATH: 
+  /var/folders/6h/2b0049_s4bg3d6mkqyqkxgf4t09c00/T/yarn--1668609867782-0.1343363984910777:/Users/michva2/.config/yarn/global/node_modules/.bin:/Users/michva2/.config/yarn/link/node_modules/.bin:/opt/homebrew/Cellar/node/18.9.0/libexec/lib/node_modules/npm/bin/node-gyp-bin:/opt/homebrew/Cellar/node/18.9.0/lib/node_modules/npm/bin/node-gyp-bin:/opt/homebrew/Cellar/node/18.9.0/bin/node_modules/npm/bin/node-gyp-bin:/Users/michva2/.yarn/bin:/Users/michva2/.config/yarn/global/node_modules/.bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Users/michva2/.fig/bin:/Users/michva2/.local/bin:/Users/michva2/Library/Android/sdk/emulator:/Users/michva2/Library/Android/sdk/platform-tools
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  18.9.0
+
+Platform: 
+  darwin arm64
+
+Trace: 
+  Error: ENOENT: no such file or directory, lstat '/Users/michva2/Library/Caches/Yarn/v6/npm-react-native-0.70.5-f60540b21d338891086e0a834e331c124dd1f55c-integrity/node_modules/react-native/ReactAndroid/src'
+
+npm manifest: 
+  {
+    "name": "playground",
+    "version": "1.0.0",
+    "main": "node_modules/expo/AppEntry.js",
+    "scripts": {
+      "start": "expo start",
+      "android": "expo start --android",
+      "ios": "expo start --ios",
+      "web": "expo start --web"
+    },
+    "dependencies": {
+      "expo": "~47.0.6",
+      "expo-status-bar": "~1.4.2",
+      "react": "18.1.0",
+      "react-native": "0.70.5"
+    },
+    "devDependencies": {
+      "@babel/core": "^7.12.9"
+    },
+    "private": true
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
