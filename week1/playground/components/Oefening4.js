@@ -10,24 +10,26 @@ import {
 
 const list = ["Jef", "Killian", "Brent", "Stef", "Dion", "Gilles"];
 
-const Oefening1 = () => {
-  const [search, setSearch] = useState("");
-  const filteredList = list.filter((item) =>
-    item.toLowerCase().includes(search.toLowerCase())
-  );
+const Oefening4 = () => {
+  const [text, setText] = useState("");
+
+  const handleChangeText = (text) => {
+    if (text.length <= 160) {
+      setText(text);
+    }
+  };
 
   return (
     <View style={styles.container}>
       <TextInput
         style={styles.input}
         placeholder="HALLO"
-        value={search}
-        onChangeText={(text) => setSearch(text)}
+        value={text}
+        multiline={true}
+        maxLength={160}
+        onChangeText={handleChangeText}
       />
-      <FlatList
-        data={filteredList}
-        renderItem={({ item }) => <Text>{item}</Text>}
-      />
+      <Text>{text.length}/160</Text>
     </View>
   );
 };
@@ -43,4 +45,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Oefening1;
+export default Oefening4;

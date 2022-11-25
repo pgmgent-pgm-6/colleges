@@ -8,26 +8,19 @@ import {
   View,
 } from "react-native";
 
-const list = ["Jef", "Killian", "Brent", "Stef", "Dion", "Gilles"];
-
-const Oefening1 = () => {
-  const [search, setSearch] = useState("");
-  const filteredList = list.filter((item) =>
-    item.toLowerCase().includes(search.toLowerCase())
-  );
+const Oefening5 = () => {
+  const [text, setText] = useState("");
+  const list = text.split(";");
 
   return (
     <View style={styles.container}>
       <TextInput
         style={styles.input}
         placeholder="HALLO"
-        value={search}
-        onChangeText={(text) => setSearch(text)}
+        value={text}
+        onChangeText={(text) => setText(text)}
       />
-      <FlatList
-        data={filteredList}
-        renderItem={({ item }) => <Text>{item}</Text>}
-      />
+      <FlatList data={list} renderItem={({ item }) => <Text>{item}</Text>} />
     </View>
   );
 };
@@ -43,4 +36,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Oefening1;
+export default Oefening5;
