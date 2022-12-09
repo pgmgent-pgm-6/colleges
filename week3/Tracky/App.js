@@ -6,7 +6,7 @@ import { DefaultTheme, NavigationContainer } from "@react-navigation/native";
 import { Variables } from "./src/app/style";
 import AuthProvider from "./src/app/Components/Shared/Auth/AuthProvider";
 import AppContent from "./src/app/Navigators/AppContent";
-import { createAccount, supabase } from "./src/core/api/supabase";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 const AppTheme = {
   ...DefaultTheme,
@@ -20,16 +20,20 @@ const AppTheme = {
   },
 };
 
+const queryClient = new QueryClient();
+
 export default function App() {
   return (
-    <AppContainer>
-      <AuthProvider>
-        <NavigationContainer theme={AppTheme}>
-          <AppContent />
-          <StatusBar style="dark" />
-        </NavigationContainer>
-      </AuthProvider>
-    </AppContainer>
+    <QueryClientProvider client={queryClient}>
+      <AppContainer>
+        <AuthProvider>
+          <NavigationContainer theme={AppTheme}>
+            <AppContent />
+            <StatusBar style="dark" />
+          </NavigationContainer>
+        </AuthProvider>
+      </AppContainer>
+    </QueryClientProvider>
   );
 }
 

@@ -2,7 +2,6 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Navigation } from "../../core/navigation";
 import Icons from "@expo/vector-icons/MaterialCommunityIcons";
 import LogsScreen from "../Screens/Logs/LogsScreen";
-import ProjectsScreen from "../Screens/Projects/ProjectsScreen";
 import SettingsScreen from "../Screens/Settings/SettingsScreen";
 import { DefaultNavigatorOptions, Variables } from "../style";
 import ProjectNavigator from "./ProjectNavigator";

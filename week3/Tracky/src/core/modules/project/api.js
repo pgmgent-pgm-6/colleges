@@ -7,3 +7,12 @@ export const getProjects = async () => {
     .order("name")
     .throwOnError();
 };
+
+export const createProject = async (project) => {
+  return await supabase
+    .from("projects")
+    .insert(project)
+    .select()
+    .throwOnError()
+    .single();
+};

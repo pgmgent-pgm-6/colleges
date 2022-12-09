@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { StyleSheet, View } from "react-native";
+import { useMutation } from "react-query";
 import { login } from "../../../core/modules/auth/api";
 import isVoid from "../../../core/utils/isVoid";
 import Button from "../../Components/Design/Button/Button";
@@ -9,10 +10,18 @@ import Title from "../../Components/Design/Text/Title";
 import { Variables } from "../../style";
 
 const LoginScreen = () => {
+  const { mutate, isLoading, isError, error } = useMutation(login);
+
   const [data, setData] = useState({
     email: "",
     password: "",
   });
+
+  useEffect(() => {
+    if (isError) {
+      alert(error);
+    }
+  }, [isError]);
 
   const handleChange = (name, value) => {
     setData({
@@ -23,12 +32,7 @@ const LoginScreen = () => {
 
   const handlePress = async () => {
     if (!isVoid(data.email) && !isVoid(data.password)) {
-      // try login
-      try {
-        const response = await login({ ...data });
-      } catch (error) {
-        console.log(error);
-      }
+      mutate({ ...data });
     }
   };
 
@@ -39,6 +43,7 @@ const LoginScreen = () => {
       <TextField
         label="Email"
         name="email"
+        disabled={isLoading}
         value={data.email}
         placeholder="john@doe.com"
         autoComplete="email"
@@ -48,11 +53,12 @@ const LoginScreen = () => {
       <TextField
         label="Password"
         name="password"
+        disabled={isLoading}
         value={data.password}
         secureTextEntry={true}
         onChangeText={(text) => handleChange("password", text)}
       />
-      <Button style={styles.button} onPress={handlePress}>
+      <Button style={styles.button} onPress={handlePress} disabled={isLoading}>
         Aanmelden
       </Button>
     </View>
