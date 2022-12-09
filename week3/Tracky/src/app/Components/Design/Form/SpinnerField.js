@@ -1,17 +1,19 @@
-import { StyleSheet, TextInput as RNTextInput, View } from "react-native";
+import { StyleSheet, TextInput } from "react-native";
 import React from "react";
 import { DefaultStyles, Variables } from "../../../style";
+import { Picker } from "@react-native-picker/picker";
 import BaseTextField from "./BaseTextField";
 
-const TextField = React.forwardRef(
+const SpinnerField = React.forwardRef(
   (
     {
       name,
       value,
       label,
-      onChangeText,
-      placeholder,
+      onChange,
       style,
+      placeholder,
+      items,
       disabled = false,
       error,
       ...rest
@@ -25,15 +27,23 @@ const TextField = React.forwardRef(
         backgroundStyle={styles.background}
         error={error}
       >
-        <RNTextInput
+        <Picker
+          selectedValue={value}
           style={styles.input}
-          value={value}
-          editable={!disabled}
-          onChangeText={onChangeText}
+          enabled={!disabled}
+          onValueChange={onChange}
+          dropdownIconColor={Variables.colors.text}
           ref={ref}
-          placeholder={placeholder}
           {...rest}
-        />
+        >
+          {items.map((item) => (
+            <Picker.Item
+              key={item.label}
+              label={item.label}
+              value={item.value}
+            />
+          ))}
+        </Picker>
       </BaseTextField>
     );
   }
@@ -41,12 +51,11 @@ const TextField = React.forwardRef(
 
 const styles = StyleSheet.create({
   background: {
-    paddingVertical: Variables.sizes.small,
-    paddingHorizontal: Variables.sizes.medium,
+    paddingVertical: 0,
   },
   input: {
     ...DefaultStyles.text,
   },
 });
 
-export default TextField;
+export default SpinnerField;

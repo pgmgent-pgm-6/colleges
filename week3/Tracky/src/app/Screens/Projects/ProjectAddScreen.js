@@ -5,10 +5,11 @@ import { createProject } from "../../../core/modules/project/api";
 import isVoid from "../../../core/utils/isVoid";
 import Button from "../../Components/Design/Button/Button";
 import TextField from "../../Components/Design/Form/TextField";
+import ClientSpinnerField from "../../Components/Shared/Client/ClientSpinnerField";
 
 const ProjectAddScreen = ({ navigation }) => {
   const queryClient = useQueryClient();
-  const { mutate, isLoading, isError, error } = useMutation(createProject, {
+  const { mutate, isLoading } = useMutation(createProject, {
     onSuccess: () => {
       queryClient.invalidateQueries(["projects"]);
       navigation.goBack();
@@ -17,6 +18,7 @@ const ProjectAddScreen = ({ navigation }) => {
 
   const [data, setData] = useState({
     name: "",
+    client_id: null,
   });
 
   const handleChange = (name, value) => {
@@ -41,6 +43,14 @@ const ProjectAddScreen = ({ navigation }) => {
         value={data.name}
         onChangeText={(text) => handleChange("name", text)}
       />
+      <ClientSpinnerField
+        label="Client"
+        name="client_id"
+        disabled={isLoading}
+        value={data.client_id}
+        onChange={(value) => handleChange("client_id", value)}
+      />
+
       <Button onPress={handlePress} disabled={isLoading}>
         Create project
       </Button>

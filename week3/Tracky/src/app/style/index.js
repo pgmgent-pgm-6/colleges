@@ -59,6 +59,9 @@ export const DefaultStyles = {
 
 export const DefaultNavigatorOptions = {
   screenOptions: {
+    tabBarStyle: {
+      backgroundColor: Variables.colors.white,
+    },
     headerTitleStyle: {
       fontFamily: Fonts.bold,
     },

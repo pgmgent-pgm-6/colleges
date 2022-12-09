@@ -5,6 +5,7 @@ import LogsScreen from "../Screens/Logs/LogsScreen";
 import SettingsScreen from "../Screens/Settings/SettingsScreen";
 import { DefaultNavigatorOptions, Variables } from "../style";
 import ProjectNavigator from "./ProjectNavigator";
+import ClientNavigator from "./ClientNavigator";
 
 const getTabIcon = (name, focused) => {
   let icon = "";
@@ -14,6 +15,9 @@ const getTabIcon = (name, focused) => {
       break;
     case Navigation.PROJECTS:
       icon = "folder";
+      break;
+    case Navigation.CLIENTS:
+      icon = "briefcase-account";
       break;
     case Navigation.SETTINGS:
       icon = "cog";
@@ -38,8 +42,6 @@ const AppNavigator = () => {
         ),
         tabBarActiveTintColor: Variables.colors.primary,
         tabBarInactiveTintColor: Variables.colors.gray,
-        tabBarActiveBackgroundColor: Variables.colors.white,
-        tabBarInactiveBackgroundColor: Variables.colors.white,
         ...DefaultNavigatorOptions.screenOptions,
       })}
     >
@@ -47,6 +49,11 @@ const AppNavigator = () => {
       <Tab.Screen
         name={Navigation.PROJECTS}
         component={ProjectNavigator}
+        options={{ headerShown: false }}
+      />
+      <Tab.Screen
+        name={Navigation.CLIENTS}
+        component={ClientNavigator}
         options={{ headerShown: false }}
       />
       <Tab.Screen name={Navigation.SETTINGS} component={SettingsScreen} />

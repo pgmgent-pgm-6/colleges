@@ -5,5 +5,9 @@ export const Navigation = Object.freeze({
   PROJECTS: "Projects",
   PROJECTS_OVERVIEW: "ProjectsOverview",
   PROJECTS_CREATE: "ProjectsCreate",
+
+  CLIENTS: "Clients",
+  CLIENTS_OVERVIEW: "ClientsOverview",
+
   SETTINGS: "Settings",
 });
