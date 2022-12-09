@@ -1,4 +1,4 @@
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 import { getClients } from "../../../../core/modules/client/api";
 import SpinnerField from "../../Design/Form/SpinnerField";
 

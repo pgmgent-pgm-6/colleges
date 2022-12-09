@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Text, View } from "react-native";
-import { useMutation, useQueryClient } from "react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { createProject } from "../../../core/modules/project/api";
 import isVoid from "../../../core/utils/isVoid";
 import Button from "../../Components/Design/Button/Button";

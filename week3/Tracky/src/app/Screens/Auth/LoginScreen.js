@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { StyleSheet, View } from "react-native";
-import { useMutation } from "react-query";
+import { useMutation } from "@tanstack/react-query";
 import { login } from "../../../core/modules/auth/api";
 import isVoid from "../../../core/utils/isVoid";
 import Button from "../../Components/Design/Button/Button";

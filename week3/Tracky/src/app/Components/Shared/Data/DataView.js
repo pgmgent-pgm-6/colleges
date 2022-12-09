@@ -1,4 +1,4 @@
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 import LoadingIndicator from "../../Design/Loading/LoadingIndicator";
 import ErrorMessage from "../../Design/Text/ErrorMessage";
 import CenteredView from "../../Design/View/CenteredView";

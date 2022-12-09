@@ -6,7 +6,7 @@ import { DefaultTheme, NavigationContainer } from "@react-navigation/native";
 import { Variables } from "./src/app/style";
 import AuthProvider from "./src/app/Components/Shared/Auth/AuthProvider";
 import AppContent from "./src/app/Navigators/AppContent";
-import { QueryClient, QueryClientProvider } from "react-query";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const AppTheme = {
   ...DefaultTheme,
