@@ -5,7 +5,7 @@ import DataListView from "../../Components/Shared/Data/DataListView";
 const ClientsScreen = ({ navigation }) => {
   return (
     <DataListView
-      name="clients"
+      name={["clients"]}
       method={getClients}
       emptyTitle="Geen klanten"
       emptyDescription="Je hebt nog geen klanten."
