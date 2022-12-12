@@ -1,12 +1,18 @@
 export const Navigation = Object.freeze({
   LOGIN: "Login",
+  REGISTER: "Register",
 
-  LOGS: "Logs",
   PROJECTS: "Projects",
   PROJECTS_OVERVIEW: "ProjectsOverview",
   PROJECTS_DETAIL: "ProjectsDetail",
   PROJECTS_CREATE: "ProjectsCreate",
   PROJECTS_UPDATE: "ProjectsUpdate",
+
+  LOGS: "Logs",
+  LOGS_OVERVIEW: "LogsOverview",
+  LOGS_DETAIL: "LogsDetail",
+  LOGS_CREATE: "LogsCreate",
+  LOGS_UPDATE: "LogsUpdate",
 
   CLIENTS: "Clients",
   CLIENTS_OVERVIEW: "ClientsOverview",
@@ -15,4 +21,6 @@ export const Navigation = Object.freeze({
   CLIENTS_UPDATE: "ClientsUpdate",
 
   SETTINGS: "Settings",
+  SETTINGS_OVERVIEW: "SettingsOverview",
+  SETTINGS_USER_UPDATE: "SettingsUserUpdate",
 });
