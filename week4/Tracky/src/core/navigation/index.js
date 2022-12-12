@@ -8,6 +8,9 @@ export const Navigation = Object.freeze({
 
   CLIENTS: "Clients",
   CLIENTS_OVERVIEW: "ClientsOverview",
+  CLIENTS_DETAIL: "ClientsDetail",
+  CLIENTS_CREATE: "ClientsCreate",
+  CLIENTS_UPDATE: "ClientsUpdate",
 
   SETTINGS: "Settings",
 });

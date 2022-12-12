@@ -8,6 +8,15 @@ export const getClients = async () => {
     .throwOnError();
 };
 
+export const getClientById = async (id) => {
+  return await supabase
+    .from("clients")
+    .select("*")
+    .eq("id", id)
+    .single()
+    .throwOnError();
+};
+
 export const createClient = async (client) => {
   return await supabase
     .from("clients")
@@ -15,4 +24,12 @@ export const createClient = async (client) => {
     .select()
     .throwOnError()
     .single();
+};
+
+export const updateClient = async (client) => {
+  return await supabase
+    .from("clients")
+    .update(client)
+    .eq("id", client.id)
+    .throwOnError();
 };
