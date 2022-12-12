@@ -4,6 +4,12 @@ import ListItem from "../../Components/Design/List/ListItem";
 import DataListView from "../../Components/Shared/Data/DataListView";
 
 const ProjectsScreen = ({ navigation }) => {
+  const handlePress = (item) => {
+    navigation.push(Navigation.PROJECTS_DETAIL, {
+      id: item.id,
+    });
+  };
+
   return (
     <DataListView
       name={["projects"]}
@@ -15,7 +21,7 @@ const ProjectsScreen = ({ navigation }) => {
         navigation.push(Navigation.PROJECTS_CREATE);
       }}
       renderItem={({ item }) => (
-        <ListItem title={item.name} onPress={() => {}} />
+        <ListItem title={item.name} onPress={() => handlePress(item)} />
       )}
     />
   );

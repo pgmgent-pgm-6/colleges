@@ -8,6 +8,15 @@ export const getProjects = async () => {
     .throwOnError();
 };
 
+export const getProjectById = async (id) => {
+  return await supabase
+    .from("projects")
+    .select("*")
+    .eq("id", id)
+    .single()
+    .throwOnError();
+};
+
 export const createProject = async (project) => {
   return await supabase
     .from("projects")
@@ -15,4 +24,12 @@ export const createProject = async (project) => {
     .select()
     .throwOnError()
     .single();
+};
+
+export const updateProject = async (project) => {
+  return await supabase
+    .from("projects")
+    .update(project)
+    .eq("id", project.id)
+    .throwOnError();
 };
