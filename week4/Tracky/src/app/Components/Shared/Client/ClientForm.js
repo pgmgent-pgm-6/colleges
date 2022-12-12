@@ -20,7 +20,6 @@ const ClientForm = ({ updateMethod, onSuccess, initialValues = {}, label }) => {
   });
 
   const handleSubmit = async (values) => {
-    console.log(values);
     mutate(values);
   };
 
