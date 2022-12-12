@@ -14,7 +14,7 @@ const ClientDetailScreen = ({ route }) => {
       render={(client) => {
         return (
           <DefaultView>
-            <Text>{client.data.name}</Text>
+            <Text>{client.name}</Text>
           </DefaultView>
         );
       }}

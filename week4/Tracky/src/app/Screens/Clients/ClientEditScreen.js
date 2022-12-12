@@ -1,6 +1,6 @@
 import ClientForm from "../../Components/Shared/Client/ClientForm";
 import { useQueryClient } from "@tanstack/react-query";
-import { updateClient } from "../../../core/modules/client/api";
+import { updateClient, getClientById } from "../../../core/modules/client/api";
 import DefaultView from "../../Components/Design/View/DefaultView";
 import DataView from "../../Components/Shared/Data/DataView";
 
@@ -21,7 +21,7 @@ const ClientEditScreen = ({ navigation, route }) => {
         <DefaultView>
           <ClientForm
             updateMethod={updateClient}
-            initialValues={{ ...client.data }}
+            initialValues={{ ...client }}
             onSuccess={handleSuccess}
             label="Update"
           />

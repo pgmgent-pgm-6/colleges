@@ -17,7 +17,7 @@ const DataListView = ({
       name={name}
       method={method}
       render={(data) =>
-        data.data.length === 0 ? (
+        data.length === 0 ? (
           <EmptyView
             title={emptyTitle}
             description={emptyDescription}
@@ -27,7 +27,7 @@ const DataListView = ({
         ) : (
           <FlatList
             ItemSeparatorComponent={() => <Divider />}
-            data={data.data}
+            data={data}
             renderItem={renderItem}
             keyExtractor={(item) => item.id}
           />

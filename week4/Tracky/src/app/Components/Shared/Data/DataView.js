@@ -6,7 +6,10 @@ import CenteredView from "../../Design/View/CenteredView";
 import DefaultView from "../../Design/View/DefaultView";
 
 const DataView = ({ name, method, render, titleProp }) => {
-  const { data, isError, error, isLoading } = useQuery(name, method);
+  const { data, isError, error, isLoading } = useQuery({
+    queryKey: name,
+    queryFn: method,
+  });
 
   useTitle(titleProp ? data?.data[titleProp] : null);
 
@@ -26,7 +29,7 @@ const DataView = ({ name, method, render, titleProp }) => {
     );
   }
 
-  return render(data);
+  return render(data.data);
 };
 
 export default DataView;
