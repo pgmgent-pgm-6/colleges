@@ -5,13 +5,13 @@ import ErrorMessage from "../../Design/Text/ErrorMessage";
 import CenteredView from "../../Design/View/CenteredView";
 import DefaultView from "../../Design/View/DefaultView";
 
-const DataView = ({ name, method, render, titleProp }) => {
+const DataView = ({ name, method, render, titleKey }) => {
   const { data, isError, error, isLoading } = useQuery({
     queryKey: name,
     queryFn: method,
   });
 
-  useTitle(titleProp ? data?.data[titleProp] : null);
+  useTitle(titleKey ? data?.data[titleKey] : null);
 
   if (isLoading) {
     return (

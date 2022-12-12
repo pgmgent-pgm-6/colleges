@@ -10,7 +10,7 @@ const ClientDetailScreen = ({ route }) => {
     <DataView
       name={["clients", id]}
       method={() => getClientById(id)}
-      titleProp="name"
+      titleKey="name"
       render={(client) => {
         return (
           <DefaultView>
