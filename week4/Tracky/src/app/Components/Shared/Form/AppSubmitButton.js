@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 import { Variables } from "../../../style";
 import Button from "../../Design/Button/Button";
 
-const AppSubmitButton = ({ style, disabled, children }) => {
+const AppSubmitButton = ({ style = {}, disabled, children }) => {
   const { handleSubmit, isValid } = useFormikContext();
 
   return (
