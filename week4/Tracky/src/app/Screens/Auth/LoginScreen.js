@@ -14,49 +14,62 @@ import DefaultView from "../../Components/Design/View/DefaultView";
 import AppTextField from "../../Components/Shared/Form/AppTextField";
 import AppSubmitButton from "../../Components/Shared/Form/AppSubmitButton";
 import ErrorMessage from "../../Components/Design/Text/ErrorMessage";
+import TextButton from "../../Components/Design/Button/TextButton";
+import { Navigation } from "../../../core/navigation";
+import { StatusBar } from "expo-status-bar";
 
 const schema = yup.object().shape({
   email: yup.string().email().required(),
   password: yup.string().required(),
 });
 
-const LoginScreen = () => {
+const LoginScreen = ({ navigation }) => {
   const { mutate, isLoading, isError, error } = useMutation(login);
 
   const handleSubmit = async (values) => {
     mutate(values);
   };
 
+  const handleRegisterPress = () => {
+    navigation.navigate(Navigation.REGISTER);
+  };
+
   return (
-    <AppForm
-      initialValues={{
-        email: "",
-        password: "",
-      }}
-      validationSchema={schema}
-      onSubmit={handleSubmit}
-    >
-      <DefaultView style={styles.container}>
-        <Logo />
-        <Title style={styles.title}>Meld je aan met je account</Title>
-        {isError && <ErrorMessage error={error} />}
-        <AppTextField
-          label="Email"
-          name="email"
-          disabled={isLoading}
-          placeholder="john@doe.com"
-          autoComplete="email"
-          keyboardType="email-address"
-        />
-        <AppTextField
-          label="Password"
-          name="password"
-          disabled={isLoading}
-          secureTextEntry={true}
-        />
-        <AppSubmitButton disabled={isLoading}>Aanmelden</AppSubmitButton>
-      </DefaultView>
-    </AppForm>
+    <>
+      <AppForm
+        initialValues={{
+          email: "",
+          password: "",
+        }}
+        validationSchema={schema}
+        onSubmit={handleSubmit}
+      >
+        <DefaultView style={styles.container}>
+          <Logo />
+          <Title style={styles.title}>Meld je aan met je account</Title>
+          {isError && <ErrorMessage error={error} />}
+          <AppTextField
+            label="Email"
+            name="email"
+            disabled={isLoading}
+            placeholder="john@doe.com"
+            autoComplete="email"
+            keyboardType="email-address"
+          />
+          <AppTextField
+            label="Password"
+            name="password"
+            disabled={isLoading}
+            secureTextEntry={true}
+          />
+          <AppSubmitButton disabled={isLoading}>Aanmelden</AppSubmitButton>
+          <TextButton style={styles.textButton} onPress={handleRegisterPress}>
+            Nog geen account? Registreer
+          </TextButton>
+        </DefaultView>
+      </AppForm>
+      <StatusBar style="dark" />
+    </>
   );
 };
 
@@ -71,6 +84,10 @@ const styles = StyleSheet.create({
   title: {
     marginTop: Variables.sizes.medium,
     marginBottom: Variables.sizes.xl,
+  },
+  textButton: {
+    width: "100%",
+    marginTop: Variables.sizes.small,
   },
 });
 

@@ -1,4 +1,3 @@
-import { getClientById } from "../../../core/modules/client/api";
 import { getProjectById } from "../../../core/modules/project/api";
 import Text from "../../Components/Design/Text/Text";
 import DefaultView from "../../Components/Design/View/DefaultView";
@@ -16,6 +15,7 @@ const ProjectDetailScreen = ({ route }) => {
         return (
           <DefaultView>
             <Text>{project.name}</Text>
+            <Text>Client {project.client.name}</Text>
           </DefaultView>
         );
       }}

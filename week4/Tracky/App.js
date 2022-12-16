@@ -1,5 +1,4 @@
 import "react-native-url-polyfill/auto";
-import { StatusBar } from "expo-status-bar";
 import { StyleSheet } from "react-native";
 import AppContainer from "./src/app/Components/Shared/App/AppContainer";
 import { DefaultTheme, NavigationContainer } from "@react-navigation/native";
@@ -29,7 +28,6 @@ export default function App() {
         <AuthProvider>
           <NavigationContainer theme={AppTheme}>
             <AppContent />
-            <StatusBar style="dark" />
           </NavigationContainer>
         </AuthProvider>
       </AppContainer>
