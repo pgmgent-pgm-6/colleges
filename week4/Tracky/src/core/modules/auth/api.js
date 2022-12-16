@@ -1,4 +1,6 @@
 import { supabase } from "../../api/supabase";
+import { uploadImage } from "../files/api";
+import { Bucket } from "../files/constants";
 
 export const getCurrentSession = async () => {
   const {
@@ -41,11 +43,22 @@ export const register = async (body) => {
 };
 
 export const updateUser = async (body) => {
-  const { email, password, ...rest } = body;
+  let { email, password, avatarFile, ...user } = body;
+
+  // if avatar file exists, upload first
+  if (avatarFile) {
+    const fileName = `${user.id}/${Date.now()}.png`;
+    await uploadImage(Bucket.Avatars, fileName, avatarFile);
+    user = {
+      ...user,
+      avatar: fileName,
+    };
+  }
+
   const { data, error } = await supabase.auth.updateUser({
     email,
     data: {
-      ...rest,
+      ...user,
     },
   });
   if (error) {

@@ -1,8 +1,8 @@
 Arguments: 
-  /opt/homebrew/Cellar/node/18.9.0/bin/node /Users/michva2/.yarn/bin/yarn.js add formik
+  /opt/homebrew/Cellar/node/18.9.0/bin/node /Users/michva2/.yarn/bin/yarnpkg add expo-image-picker@~13.3.1
 
 PATH: 
-  /Users/michva2/.yarn/bin:/Users/michva2/.config/yarn/global/node_modules/.bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Users/michva2/.fig/bin:/Users/michva2/.local/bin:/Users/michva2/Library/Android/sdk/emulator:/Users/michva2/Library/Android/sdk/platform-tools
+  /Users/michva2/Web/ahs/pgm-6/colleges/week4/Tracky/node_modules/.bin:/Users/michva2/Web/ahs/pgm-6/colleges/week4/Tracky/node_modules/.bin:/Users/michva2/Web/ahs/pgm-6/colleges/week4/node_modules/.bin:/Users/michva2/Web/ahs/pgm-6/colleges/node_modules/.bin:/Users/michva2/Web/ahs/pgm-6/node_modules/.bin:/Users/michva2/Web/ahs/node_modules/.bin:/Users/michva2/Web/node_modules/.bin:/Users/michva2/node_modules/.bin:/Users/node_modules/.bin:/node_modules/.bin:/opt/homebrew/lib/node_modules/npm/node_modules/@npmcli/run-script/lib/node-gyp-bin:/Users/michva2/.yarn/bin:/Users/michva2/.config/yarn/global/node_modules/.bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Users/michva2/.fig/bin:/Users/michva2/.local/bin:/Users/michva2/Library/Android/sdk/emulator:/Users/michva2/Library/Android/sdk/platform-tools
 
 Yarn version: 
   1.22.19

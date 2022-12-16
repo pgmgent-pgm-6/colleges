@@ -1,5 +1,4 @@
 import { Image, StyleSheet } from "react-native";
-import { Variables } from "../../../style";
 import AvatarBase from "./AvatarBase";
 
 const ImageAvatar = ({ style, source }) => {

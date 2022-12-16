@@ -1,4 +1,4 @@
-import { StyleSheet, TextInput as RNTextInput, View } from "react-native";
+import { StyleSheet, TextInput as RNTextInput } from "react-native";
 import React from "react";
 import { DefaultStyles, Variables } from "../../../style";
 import BaseTextField from "./BaseTextField";

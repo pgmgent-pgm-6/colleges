@@ -39,7 +39,6 @@ const styles = StyleSheet.create({
   title: {
     textAlign: "center",
     color: Variables.colors.white,
-    // fontFamily: Variables.fonts.bold,
     fontSize: Variables.textSizes.default,
   },
   titleDisabled: {

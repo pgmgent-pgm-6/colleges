@@ -1,6 +1,6 @@
-import TextAvatar from "../../Design/Avatar/TextAvatar";
 import ListHeaderAvatar from "../../Design/List/ListHeaderAvatar";
 import { useAuthContext } from "../Auth/AuthProvider";
+import UserAvatar from "./UserAvatar";
 
 const UserHeader = ({ onPress }) => {
   const { user } = useAuthContext();
@@ -10,11 +10,7 @@ const UserHeader = ({ onPress }) => {
       title={`${user.first_name} ${user.last_name}`}
       description={user.email}
       onPress={onPress}
-      avatar={
-        <TextAvatar>
-          {user.first_name[0]} {user.last_name[0]}
-        </TextAvatar>
-      }
+      avatar={<UserAvatar />}
     />
   );
 };
