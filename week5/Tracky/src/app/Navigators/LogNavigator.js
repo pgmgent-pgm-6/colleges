@@ -2,6 +2,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Navigation } from "../../core/navigation";
 import HeaderButton from "../Components/Design/Button/HeaderButton";
 import LogAddScreen from "../Screens/Logs/LogAddScreen";
+import LogEditScreen from "../Screens/Logs/LogEditScreen";
 import LogsScreen from "../Screens/Logs/LogsScreen";
 import { DefaultNavigatorOptions } from "../style";
 
@@ -24,13 +25,13 @@ const LogNavigator = () => {
           title: "Add log",
         }}
       />
-      {/*<Stack.Screen
-        name={Navigation.CLIENTS_UPDATE}
-        component={ClientEditScreen}
+      <Stack.Screen
+        name={Navigation.LOGS_UPDATE}
+        component={LogEditScreen}
         options={{
-          title: "Edit client",
+          title: "Edit log",
         }}
-      />*/}
+      />
     </Stack.Navigator>
   );
 };

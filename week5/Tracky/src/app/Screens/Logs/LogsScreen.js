@@ -20,7 +20,9 @@ const LogsScreen = ({ navigation }) => {
   };
 
   const handleItemPress = (log) => {
-    // edit
+    navigation.navigate(Navigation.LOGS_UPDATE, {
+      id: log.id,
+    });
   };
 
   useEffect(() => {
@@ -44,7 +46,7 @@ const LogsScreen = ({ navigation }) => {
         renderItem={({ item }) => (
           <ListItem
             title={item.comment}
-            description={`-`}
+            description={`${item.project.name} - ${item.project.client.name}`}
             right={formatTimeToString(item.time)}
             onPress={() => handleItemPress(item)}
           />

@@ -19,7 +19,7 @@ const schema = yup.object().shape({
 const defaultValues = {
   date: format(new Date(), DATE_API_FORMAT),
   comment: "",
-  time: null,
+  time: "",
   project_id: null,
 };
 

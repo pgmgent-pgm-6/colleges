@@ -6,6 +6,7 @@ import { Variables } from "../../../style";
 import IconButton from "../../Design/Button/IconButton";
 import Text from "../../Design/Text/Text";
 
+// method to add a certain day offset (e.g. -1 or +1 day) to a date string. Returns a date string
 const getDateWithOffset = (date, offset) => {
   // parse string date to JS date and add -1 or +1 day
   const newDay = addDays(parse(date, DATE_API_FORMAT, new Date()), offset);

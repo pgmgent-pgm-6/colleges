@@ -7,7 +7,7 @@ export const getLogs = async () => {
 export const getLogsByDate = async (date) => {
   return await supabase
     .from("logs")
-    .select("*")
+    .select("*, project:projects(*, client:clients(name))")
     .eq("date", date)
     .throwOnError();
 };
