@@ -1,12 +1,12 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Navigation } from "../../core/navigation";
 import Icons from "@expo/vector-icons/MaterialCommunityIcons";
-import LogsScreen from "../Screens/Logs/LogsScreen";
 import { DefaultNavigatorOptions, Variables } from "../style";
 import ProjectNavigator from "./ProjectNavigator";
 import ClientNavigator from "./ClientNavigator";
 import { StatusBar } from "expo-status-bar";
 import SettingsNavigator from "./SettingsNavigator";
+import LogNavigator from "./LogNavigator";
 
 const getTabIcon = (name, focused) => {
   let icon = "";
@@ -47,7 +47,11 @@ const AppNavigator = () => {
           ...DefaultNavigatorOptions.screenOptions,
         })}
       >
-        <Tab.Screen name={Navigation.LOGS} component={LogsScreen} />
+        <Tab.Screen
+          name={Navigation.LOGS}
+          component={LogNavigator}
+          options={{ headerShown: false }}
+        />
         <Tab.Screen
           name={Navigation.PROJECTS}
           component={ProjectNavigator}
