@@ -1,4 +1,5 @@
 import { format, parse } from "date-fns";
+import isVoid from "../../utils/isVoid";
 import padTime from "../../utils/padTime";
 import { DATE_API_FORMAT } from "./constants";
 
@@ -8,6 +9,20 @@ const formatTimeToString = (minutes, separator = ":") => {
   const min = minutes % 60;
 
   return `${padTime(hours)}${separator}${padTime(min)}`;
+};
+
+// e.g. "01:30" to 90
+const parseStringToTime = (string) => {
+  if (!isVoid(string)) {
+    const parts = string.split(":");
+    const hours =
+      parts.length > 1 && !isVoid(parts[0]) ? parseInt(parts[0]) : 0;
+    const minutes = Math.min(59, parseInt(parts[parts.length - 1]));
+
+    return hours * 60 + minutes;
+  } else {
+    return 0;
+  }
 };
 
 // format date depending on current date
@@ -27,4 +42,4 @@ const formatDate = (date) => {
   return format(date, "dd/MM/yyyy");
 };
 
-export { formatDate, formatTimeToString };
+export { formatDate, formatTimeToString, parseStringToTime };

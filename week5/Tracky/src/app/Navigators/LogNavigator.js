@@ -30,6 +30,9 @@ const LogNavigator = () => {
         component={LogEditScreen}
         options={{
           title: "Edit log",
+          headerRight: () => (
+            <HeaderButton title="Delete log" icon="trash-can" />
+          ),
         }}
       />
     </Stack.Navigator>

@@ -37,3 +37,7 @@ export const updateLog = async (log) => {
     .eq("id", log.id)
     .throwOnError();
 };
+
+export const deleteLog = async (uid) => {
+  return await supabase.from("logs").delete().eq("id", uid).throwOnError();
+};

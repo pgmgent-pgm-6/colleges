@@ -8,6 +8,8 @@ import AppSubmitButton from "../Form/AppSubmitButton";
 import { format } from "date-fns";
 import { DATE_API_FORMAT } from "../../../../core/modules/log/constants";
 import ProjectSpinnerField from "../Project/ProjectSpinnerField";
+import AppDatePicker from "../Form/DatePicker/AppDatePicker.android";
+import AppTimeTextField from "../Form/AppTimeTextField";
 
 const schema = yup.object().shape({
   time: yup.number().min(1).required(),
@@ -40,9 +42,9 @@ const LogForm = ({ updateMethod, onSuccess, initialValues = {}, label }) => {
     >
       <View>
         {isError && <ErrorMessage error={error} />}
-        <AppTextField name="date" label="Date" disabled={isLoading} />
+        <AppDatePicker name="date" label="Date" disabled={isLoading} />
 
-        <AppTextField name="time" label="Time" disabled={isLoading} />
+        <AppTimeTextField name="time" label="Time" disabled={isLoading} />
 
         <AppTextField
           name="comment"
