@@ -11,7 +11,7 @@ export const getClients = async () => {
 export const getClientById = async (id) => {
   return await supabase
     .from("clients")
-    .select("*")
+    .select("*, projects(*)")
     .eq("id", id)
     .single()
     .throwOnError();

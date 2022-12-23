@@ -6,48 +6,18 @@ import ProjectDetailScreen from "../Screens/Projects/ProjectDetailScreen";
 import ProjectEditScreen from "../Screens/Projects/ProjectEditScreen";
 import ProjectsScreen from "../Screens/Projects/ProjectsScreen";
 import { DefaultNavigatorOptions, Variables } from "../style";
+import { createClientSubScreens } from "./ClientNavigator";
+import { createLogSubScreens } from "./LogNavigator";
 
-const Stack = createNativeStackNavigator();
-const ProjectNavigator = ({ navigation }) => {
+export const createProjectSubScreens = (Stack, navigation) => {
   return (
-    <Stack.Navigator {...DefaultNavigatorOptions}>
-      <Stack.Screen
-        name={Navigation.PROJECTS_OVERVIEW}
-        component={ProjectsScreen}
-        options={{
-          title: "Projects",
-          headerRight: () => (
-            <HeaderButton
-              onPress={() => {
-                navigation.navigate(Navigation.PROJECTS, {
-                  screen: Navigation.PROJECTS_CREATE,
-                });
-              }}
-              icon="plus"
-              title="Add project"
-            />
-          ),
-        }}
-      />
+    <>
       <Stack.Screen
         name={Navigation.PROJECTS_DETAIL}
         component={ProjectDetailScreen}
         options={({ route }) => ({
           title: "",
-          headerRight: () => (
-            <HeaderButton
-              onPress={() => {
-                navigation.navigate(Navigation.PROJECTS, {
-                  screen: Navigation.PROJECTS_UPDATE,
-                  params: {
-                    id: route.params?.id,
-                  },
-                });
-              }}
-              icon="pencil"
-              title="Edit"
-            />
-          ),
+          headerRight: () => <HeaderButton icon="pencil" title="Edit" />,
         })}
       />
       <Stack.Screen
@@ -64,6 +34,25 @@ const ProjectNavigator = ({ navigation }) => {
           title: "Edit project",
         }}
       />
+    </>
+  );
+};
+
+const Stack = createNativeStackNavigator();
+const ProjectNavigator = ({ navigation }) => {
+  return (
+    <Stack.Navigator {...DefaultNavigatorOptions}>
+      <Stack.Screen
+        name={Navigation.PROJECTS_OVERVIEW}
+        component={ProjectsScreen}
+        options={{
+          title: "Projects",
+          headerRight: () => <HeaderButton icon="plus" title="Add project" />,
+        }}
+      />
+      {createProjectSubScreens(Stack, navigation)}
+      {createLogSubScreens(Stack, navigation)}
+      {createClientSubScreens(Stack, navigation)}
     </Stack.Navigator>
   );
 };

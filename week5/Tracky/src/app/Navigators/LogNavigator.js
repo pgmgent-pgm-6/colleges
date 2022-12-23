@@ -6,18 +6,9 @@ import LogEditScreen from "../Screens/Logs/LogEditScreen";
 import LogsScreen from "../Screens/Logs/LogsScreen";
 import { DefaultNavigatorOptions } from "../style";
 
-const Stack = createNativeStackNavigator();
-const LogNavigator = () => {
+export const createLogSubScreens = (Stack, navigation) => {
   return (
-    <Stack.Navigator {...DefaultNavigatorOptions}>
-      <Stack.Screen
-        name={Navigation.LOGS_OVERVIEW}
-        component={LogsScreen}
-        options={{
-          title: "Logs",
-          headerRight: () => <HeaderButton icon="plus" title="Add log" />,
-        }}
-      />
+    <>
       <Stack.Screen
         name={Navigation.LOGS_CREATE}
         component={LogAddScreen}
@@ -35,6 +26,23 @@ const LogNavigator = () => {
           ),
         }}
       />
+    </>
+  );
+};
+
+const Stack = createNativeStackNavigator();
+const LogNavigator = ({ navigation }) => {
+  return (
+    <Stack.Navigator {...DefaultNavigatorOptions}>
+      <Stack.Screen
+        name={Navigation.LOGS_OVERVIEW}
+        component={LogsScreen}
+        options={{
+          title: "Logs",
+          headerRight: () => <HeaderButton icon="plus" title="Add log" />,
+        }}
+      />
+      {createLogSubScreens(Stack, navigation)}
     </Stack.Navigator>
   );
 };

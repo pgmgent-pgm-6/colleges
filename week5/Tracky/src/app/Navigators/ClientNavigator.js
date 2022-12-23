@@ -6,48 +6,18 @@ import ClientDetailScreen from "../Screens/Clients/ClientDetailScreen";
 import ClientEditScreen from "../Screens/Clients/ClientEditScreen";
 import ClientsScreen from "../Screens/Clients/ClientsScreen";
 import { DefaultNavigatorOptions } from "../style";
+import { createLogSubScreens } from "./LogNavigator";
+import { createProjectSubScreens } from "./ProjectNavigator";
 
-const Stack = createNativeStackNavigator();
-const ClientNavigator = ({ navigation }) => {
+export const createClientSubScreens = (Stack, navigation) => {
   return (
-    <Stack.Navigator {...DefaultNavigatorOptions}>
-      <Stack.Screen
-        name={Navigation.CLIENTS_OVERVIEW}
-        component={ClientsScreen}
-        options={{
-          title: "Clients",
-          headerRight: () => (
-            <HeaderButton
-              onPress={() => {
-                navigation.navigate(Navigation.CLIENTS, {
-                  screen: Navigation.CLIENTS_CREATE,
-                });
-              }}
-              icon="plus"
-              title="Add client"
-            />
-          ),
-        }}
-      />
+    <>
       <Stack.Screen
         name={Navigation.CLIENTS_DETAIL}
         component={ClientDetailScreen}
         options={({ route }) => ({
           title: "",
-          headerRight: () => (
-            <HeaderButton
-              onPress={() => {
-                navigation.navigate(Navigation.CLIENTS, {
-                  screen: Navigation.CLIENTS_UPDATE,
-                  params: {
-                    id: route.params?.id,
-                  },
-                });
-              }}
-              icon="pencil"
-              title="Edit"
-            />
-          ),
+          headerRight: () => <HeaderButton icon="pencil" title="Edit" />,
         })}
       />
       <Stack.Screen
@@ -64,6 +34,25 @@ const ClientNavigator = ({ navigation }) => {
           title: "Edit client",
         }}
       />
+    </>
+  );
+};
+
+const Stack = createNativeStackNavigator();
+const ClientNavigator = ({ navigation }) => {
+  return (
+    <Stack.Navigator {...DefaultNavigatorOptions}>
+      <Stack.Screen
+        name={Navigation.CLIENTS_OVERVIEW}
+        component={ClientsScreen}
+        options={{
+          title: "Clients",
+          headerRight: () => <HeaderButton icon="plus" title="Add client" />,
+        }}
+      />
+      {createClientSubScreens(Stack, navigation)}
+      {createProjectSubScreens(Stack, navigation)}
+      {createLogSubScreens(Stack, navigation)}
     </Stack.Navigator>
   );
 };

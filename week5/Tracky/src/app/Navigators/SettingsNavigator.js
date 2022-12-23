@@ -4,8 +4,22 @@ import SettingsScreen from "../Screens/Settings/SettingsScreen";
 import UserEditScreen from "../Screens/Settings/UserEditScreen";
 import { DefaultNavigatorOptions } from "../style";
 
+export const createSettingSubScreens = (Stack, navigation) => {
+  return (
+    <>
+      <Stack.Screen
+        component={UserEditScreen}
+        name={Navigation.SETTINGS_USER_UPDATE}
+        options={{
+          title: "Edit profile",
+        }}
+      />
+    </>
+  );
+};
+
 const Stack = createNativeStackNavigator();
-const SettingsNavigator = () => (
+const SettingsNavigator = ({ navigation }) => (
   <Stack.Navigator {...DefaultNavigatorOptions}>
     <Stack.Screen
       component={SettingsScreen}
@@ -14,13 +28,7 @@ const SettingsNavigator = () => (
         title: "Settings",
       }}
     />
-    <Stack.Screen
-      component={UserEditScreen}
-      name={Navigation.SETTINGS_USER_UPDATE}
-      options={{
-        title: "Edit profile",
-      }}
-    />
+    {createSettingSubScreens(Stack, navigation)}
   </Stack.Navigator>
 );
 

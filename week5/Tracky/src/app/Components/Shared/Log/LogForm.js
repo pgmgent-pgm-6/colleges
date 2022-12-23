@@ -25,10 +25,22 @@ const defaultValues = {
   project_id: null,
 };
 
-const LogForm = ({ updateMethod, onSuccess, initialValues = {}, label }) => {
+const defaultOptions = {
+  showProject: true,
+};
+
+const LogForm = ({
+  updateMethod,
+  onSuccess,
+  initialValues = {},
+  options = {},
+  label,
+}) => {
   const { mutate, isLoading, isError, error } = useMutation(updateMethod, {
     onSuccess,
   });
+
+  const formOptions = { ...defaultOptions, ...options };
 
   const handleSubmit = async (values) => {
     mutate(values);
@@ -53,11 +65,13 @@ const LogForm = ({ updateMethod, onSuccess, initialValues = {}, label }) => {
           disabled={isLoading}
         />
 
-        <ProjectSpinnerField
-          name="project_id"
-          label="Project"
-          disabled={isLoading}
-        />
+        {formOptions.showProject && (
+          <ProjectSpinnerField
+            name="project_id"
+            label="Project"
+            disabled={isLoading}
+          />
+        )}
 
         <AppSubmitButton disabled={isLoading}>{label}</AppSubmitButton>
       </View>

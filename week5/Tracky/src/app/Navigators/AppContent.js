@@ -9,6 +9,9 @@ const AppContent = () => {
     return <AuthNavigator />;
   }
 
+  {
+    /* import from AppNavigator-alt for alternative */
+  }
   return <AppNavigator />;
 };
 

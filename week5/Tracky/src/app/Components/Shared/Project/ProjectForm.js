@@ -17,15 +17,22 @@ const defaultValues = {
   client_id: null,
 };
 
+const defaultOptions = {
+  showClient: true,
+};
+
 const ProjectForm = ({
   updateMethod,
   onSuccess,
   initialValues = {},
+  options = {},
   label,
 }) => {
   const { mutate, isLoading, isError, error } = useMutation(updateMethod, {
     onSuccess,
   });
+
+  const formOptions = { ...defaultOptions, ...options };
 
   const handleSubmit = async (values) => {
     mutate(values);
@@ -40,11 +47,13 @@ const ProjectForm = ({
       <View>
         {isError && <ErrorMessage error={error} />}
         <AppTextField name="name" label="Project name" disabled={isLoading} />
-        <ClientSpinnerField
-          name="client_id"
-          label="Client"
-          disabled={isLoading}
-        />
+        {formOptions.showClient && (
+          <ClientSpinnerField
+            name="client_id"
+            label="Client"
+            disabled={isLoading}
+          />
+        )}
         <AppSubmitButton disabled={isLoading}>{label}</AppSubmitButton>
       </View>
     </AppForm>
