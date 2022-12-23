@@ -9,7 +9,6 @@ const ProjectAddScreen = ({ route, navigation }) => {
   const queryClient = useQueryClient();
 
   const handleSuccess = ({ data }) => {
-    console.log(data);
     queryClient.invalidateQueries(["projects"]);
     // also refresh client with that id (e.g. for detail screen)
     queryClient.invalidateQueries(["clients", [data.client_id]]);
